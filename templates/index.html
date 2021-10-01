@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Aplikasi Prediksi Peserta Training PT. XYZ</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                Prediksi Peserta Training PT. XYZ:
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+                <label for="Category" class="mb-2">Category Training</label>
+                <select
+                name="Category"
+                id="Category"
+                class="p-4 bg-gray-100 rounded-md"
+            >
+                <option value="2">Kecantikan</option>
+                <option value="3">Kesehatan</option>
+                <option value="0">Bisnis</option>
+                <option value="4">Kode Etik</option>
+                <option value="1">Durable </option>
+                <option value="5">Rules & Conduct </option>
+            </select
+
+                <label for="Day" class="mt-4 mb-2">Hari:</label
+                >
+                <select
+                    name="Day"
+                    id="Day"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="1">Senin</option>
+                    <option value="5">Selasa</option>
+                    <option value="6">Rabu</option>
+                    <option value="4">Kamis</option>
+                    <option value="0">Jumat</option>
+                    <option value="2">Sabtu</option>
+                    <option value="3">Minggu</option>
+                </select>
+
+                <label for="Time" class="mt-4 mb-2">Jam</label>
+                <select
+                    name="Time"
+                    id="Time"
+                    class="p-4 bg-gray-100 rounded-md">                    
+                    <option value="8">08:00</option>
+                    <option value="0">11:00</option>                    
+                    <option value="1">14:00</option>
+                    <option value="2">14:30</option>
+                    <option value="3">15:00</option>
+                    <option value="4">15:30</option>
+                    <option value="5">16:00</option>                    
+                    <option value="6">17:00</option>                    
+                    <option value="7">19:00</option>                    
+                </select>
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PREDIKSI SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    Estimasi Peserta yang hadir adalah
+                </h1>
+                <h2 class="text-5xl font-bold"> {{ unique_viwers }} Orang</h2>
+                {% if (unique_viwers) != 0 %}
+                <div class="mt-8">
+                   
+                </div>
+                {% endif %}
+            </div>
+            <div class="bg-white p-16 rounded-lg mt-8">
+                <h1 class="text-2xl mb-8">
+                    Tugas Akhir Kelompok 8
+                </h1>
+                <div class="mt-8">                    
+                    <p>Ofan Sofian ( No. Peserta 05124873111-2 )</p><br>
+                    <p>Nur Lutfiyana ( No. Peserta 5124873120-74 )</p><br>
+                    <p>Nyaris Untung Samodro ( No. Peserta 05124873151-64 )</p>
+                </div>
+                
+                
+            </div>
+        </section>
+    </body>
+</html>
